@@ -2,10 +2,10 @@
 
 A backtesting framework organized around the one thing that separates a real edge from a
 lucky one: **coherent evaluation**. It wraps the standard stack (numpy / pandas /
-scikit-learn) rather than hiding it, and applies the same discipline every time.
+scikit-learn) to make the logic transparent, and applies the same discipline every time.
 
-A simple backtester makes it *easy* to overfit — one train/test split, a gross Sharpe,
-no record of how many things you tried. convexpi.backtest is built to make discipline a
+A simple backtester makes it *easy to overfit* — one train/test split, a gross Sharpe,
+no record of how many things you tried. `convexpi.backtest` is built to make discipline a
 first-class feature.
 
 ## Install
