@@ -34,7 +34,7 @@ class ReportCard:
         return all(m != UNKNOWN for _, m, _, _ in self.checks)
 
     def __str__(self) -> str:
-        lines = ["Backtest report card (craft):"]
+        lines = ["Backtest report card:"]
         for q, mark, detail, rid in self.checks:
             rule = f"  [{statement(rid).split(' — ')[0]}]" if rid is not None else ""
             lines.append(f"  {mark} {q}{rule}\n      {detail}")

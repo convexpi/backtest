@@ -1,6 +1,6 @@
 """The subset of the book's Rules of the Craft that a backtest can enforce mechanically.
 
-`craft` is the Rules made executable: each guardrail in the package points back to a
+`convexpi.backtest` is the Rules made executable: each guardrail in the package points back to a
 numbered rule, and `report.card(...)` reports which of these a given result satisfies.
 Numbering matches Appendix A of *Financial Machine Learning and AI*."""
 from __future__ import annotations

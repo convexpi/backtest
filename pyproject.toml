@@ -3,17 +3,18 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "convexpi-craft"
-version = "0.1.0"
-description = "The Rules of the Craft, made executable: a thin discipline layer that makes honest-backtest habits mechanical (sealed holdout, time-aware splits, trial registry + deflated Sharpe, reproducibility manifest, six-question report card)."
+name = "convexpi-backtest"
+version = "0.2.0"
+description = "A discipline-first backtesting framework: honest-evaluation guardrails (sealed holdout, time-aware and combinatorial-purged CV, deflated Sharpe / PBO, cost & capacity, leakage detectors, reproducibility manifest, backtest card) built around the Rules of the Craft."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Shane Conway", email = "shane.conway@gmail.com" }]
 maintainers = [{ name = "Shane Conway", email = "shane.conway@gmail.com" }]
 keywords = [
-    "finance", "quantitative-finance", "machine-learning", "backtesting", "leakage",
-    "deflated-sharpe", "multiple-testing", "walk-forward", "reproducibility", "education",
+    "finance", "quantitative-finance", "backtesting", "machine-learning", "leakage",
+    "deflated-sharpe", "pbo", "combinatorial-purged-cv", "multiple-testing", "walk-forward",
+    "market-impact", "reproducibility", "education",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -23,22 +24,21 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Topic :: Education",
     "Topic :: Office/Business :: Financial :: Investment",
 ]
-dependencies = ["numpy>=1.24"]
+dependencies = ["numpy>=1.24", "pandas>=2.0"]
 
 [project.optional-dependencies]
-pandas = ["pandas>=2.0"]
 dev = ["pytest", "ruff", "build", "twine"]
 
 [project.urls]
-Homepage = "https://github.com/convexpi/craft"
-Repository = "https://github.com/convexpi/craft"
-Issues = "https://github.com/convexpi/craft/issues"
+Homepage = "https://github.com/convexpi/backtest"
+Repository = "https://github.com/convexpi/backtest"
+Issues = "https://github.com/convexpi/backtest/issues"
 
 [tool.setuptools]
-packages = ["craft"]
+package-dir = { "" = "src" }
+packages = ["convexpi.backtest"]
 license-files = ["LICENSE"]
 
 [tool.pytest.ini_options]
