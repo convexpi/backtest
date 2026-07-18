@@ -2,8 +2,8 @@
 
 A backtesting framework organized around the one thing that separates a real edge from a
 lucky one: **honest evaluation**. It wraps the standard stack (numpy / pandas /
-scikit-learn) rather than hiding it, and every guardrail points back to a numbered **Rule
-of the Craft** from *Financial Machine Learning and AI*.
+scikit-learn) rather than hiding it, and every guardrail maps to a numbered discipline
+rule (see `rules.py`).
 
 Most backtesters make it *easy* to fool yourself — one train/test split, a gross Sharpe,
 no record of how many things you tried. This one makes the honest habits mechanical and
@@ -25,7 +25,7 @@ from convexpi import backtest as bt
 
 ## What's in it
 
-**Core discipline** — the six habits of Chapter 1, as objects:
+**Core discipline** — the honest-evaluation habits, as objects:
 
 | Piece | Enforces | Rule |
 |---|---|---|
@@ -33,7 +33,7 @@ from convexpi import backtest as bt
 | `walk_forward`, `purged_walk_forward` | Time-aware splits; no random k-fold | 3, 5 |
 | `TrialRegistry` + `deflated_sharpe` | Count every trial; discount the winner | 14 |
 | `manifest` | Seed + data hash + versions + git sha on every result | 0, 2 |
-| `card(...)` | Answer Chapter 1's six questions, ✓/✗/? per Rule | — |
+| `card(...)` | Answer the six diagnostic questions, ✓/✗/? per rule | — |
 
 **Validation & overfitting**
 - `cv`: `purged_kfold`, `combinatorial_purged_split`, **`cpcv_paths`** — a *distribution* of
@@ -50,7 +50,7 @@ from convexpi import backtest as bt
 **Data, leakage, forward, governance**
 - `data`: `asof_join` (point-in-time), `survivorship_free_universe`.
 - `leakage`: `shuffle_target_test`, `time_shuffle_test`, `target_leakage_scan`,
-  **`training_window_gradient`** (learning vs recency, Ch 18).
+  **`training_window_gradient`** (learning vs recency).
 - `forward`: **`register_strategy` + `score_forward`** — the *sealed forward test*: score a
   strategy only on data that arrives *after* it was registered. The one backtest that
   cannot be overfit; wire the post-registration feed to the ConvexPi Arena for a live
@@ -88,5 +88,5 @@ print("OOS Sharpe dispersion:", np.nanstd([bt.sharpe(p) for p in paths]))
 
 ## License
 
-MIT © Shane Conway. A companion to *Financial Machine Learning and AI*, and to the
-`finmlsim` (simulators) and `convexpi.arena` (live exchange) packages.
+MIT © Shane Conway. A companion to the `finmlsim` (simulators) and `convexpi.arena`
+(live exchange) packages.
