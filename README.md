@@ -2,8 +2,7 @@
 
 A backtesting framework organized around the one thing that separates a real edge from a
 lucky one: **honest evaluation**. It wraps the standard stack (numpy / pandas /
-scikit-learn) rather than hiding it, and every guardrail maps to a numbered discipline
-rule (see `rules.py`).
+scikit-learn) rather than hiding it, and makes the honest habits mechanical.
 
 Most backtesters make it *easy* to fool yourself — one train/test split, a gross Sharpe,
 no record of how many things you tried. This one makes the honest habits mechanical and
@@ -27,13 +26,13 @@ from convexpi import backtest as bt
 
 **Core discipline** — the honest-evaluation habits, as objects:
 
-| Piece | Enforces | Rule |
-|---|---|---|
-| `SealedHoldout` | Touch the test set once (raises on the second peek) | 1 |
-| `walk_forward`, `purged_walk_forward` | Time-aware splits; no random k-fold | 3, 5 |
-| `TrialRegistry` + `deflated_sharpe` | Count every trial; discount the winner | 14 |
-| `manifest` | Seed + data hash + versions + git sha on every result | 0, 2 |
-| `card(...)` | Answer the six diagnostic questions, ✓/✗/? per rule | — |
+| Piece | Enforces |
+|---|---|
+| `SealedHoldout` | Touch the test set once (raises on the second peek) |
+| `walk_forward`, `purged_walk_forward` | Time-aware splits; no random k-fold |
+| `TrialRegistry` + `deflated_sharpe` | Count every trial; discount the winner |
+| `manifest` | Seed + data hash + versions + git sha on every result |
+| `card(...)` | Answer the six diagnostic questions, ✓/✗/? |
 
 **Validation & overfitting**
 - `cv`: `purged_kfold`, `combinatorial_purged_split`, **`cpcv_paths`** — a *distribution* of

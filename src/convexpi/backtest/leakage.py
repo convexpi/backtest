@@ -4,7 +4,7 @@
   above the permuted null, there is no signal (or the "signal" is leakage the permutation
   can't remove).
 - `time_shuffle_test`: if shuffling the row order *improves* cross-validated score, the
-  pipeline is exploiting temporal order — leakage (Rule 3).
+  pipeline is exploiting temporal order — leakage.
 - `target_leakage_scan`: features suspiciously correlated with the target.
 - `training_window_gradient`: does OOS skill grow with more history (learning) or peak at
   the shortest window (recency)? A discriminant between the two."""

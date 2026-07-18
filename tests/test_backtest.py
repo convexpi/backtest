@@ -103,5 +103,5 @@ def test_card_flags_unpaid_search_and_unknowns():
                     registry=reg, holdout=h, manifest=m, breadth=50)
     assert isinstance(str(rc), str)
     # the big null search should fail the "paid for the search" check
-    marks = {q: mk for q, mk, _, _ in rc.checks}
+    marks = {q: mk for q, mk, _ in rc.checks}
     assert marks["Paid for the search (deflated Sharpe)?"] == "✗"

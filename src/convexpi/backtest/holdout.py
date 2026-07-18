@@ -1,8 +1,7 @@
 """A test set you can look at exactly once.
 
-The single hardest habit to keep by willpower is *touch the test set once* (Rule 1's
-operational form): every extra peek quietly turns the holdout into a validation set and
-inflates the final number. `SealedHoldout` makes the rule mechanical — the second access
+The single hardest habit to keep by willpower is *touch the test set once*: every extra peek quietly turns the holdout into a validation set and
+inflates the final number. `SealedHoldout` makes it mechanical — the second access
 raises."""
 from __future__ import annotations
 

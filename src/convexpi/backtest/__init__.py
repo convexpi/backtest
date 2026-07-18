@@ -1,16 +1,15 @@
 """convexpi.backtest — a discipline-first backtesting framework.
 
-Built around a set of numbered discipline rules: the honest-evaluation habits, made
-mechanical, plus the statistics and machinery a serious backtest needs. It wraps the
-standard stack (numpy/pandas/scikit-learn) rather than hiding it, and every guardrail
-points back to a numbered rule (see ``rules.py``).
+The honest-evaluation habits, made mechanical, plus the statistics and machinery a serious
+backtest needs. It wraps the standard stack (numpy/pandas/scikit-learn) rather than hiding
+it, and makes it hard to fool yourself and loud when you try.
 
 Core discipline
     SealedHoldout ................ a test set you can look at once
     walk_forward / purged_* ...... time-aware splits; no random k-fold
     TrialRegistry + deflated_sharpe  count the search; discount the winner
     manifest ..................... seed + data hash + versions + git sha
-    card ......................... the six-question report card, per Rule
+    card ......................... the six-question report card
 
 Validation & overfitting
     cv: purged_kfold, combinatorial_purged_split, cpcv_paths (a distribution of OOS paths)
@@ -34,7 +33,6 @@ from .splits import walk_forward, purged_walk_forward
 from .registry import TrialRegistry, Trial
 from .manifest import manifest, data_hash
 from .report import card, ReportCard
-from .rules import RULES, statement
 from .metrics import (
     sharpe, max_drawdown, rank_ic, turnover, net_returns,
     probabilistic_sharpe, deflated_sharpe, expected_max_sharpe,
@@ -62,7 +60,6 @@ __all__ = [
     # core discipline
     "SealedHoldout", "HoldoutBreach", "walk_forward", "purged_walk_forward",
     "TrialRegistry", "Trial", "manifest", "data_hash", "card", "ReportCard",
-    "RULES", "statement",
     "sharpe", "max_drawdown", "rank_ic", "turnover", "net_returns",
     "probabilistic_sharpe", "deflated_sharpe", "expected_max_sharpe",
     # validation & overfitting

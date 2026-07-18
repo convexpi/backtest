@@ -2,9 +2,9 @@
 
 Deployed models answer to model-risk governance (SR 11-7). `backtest_card` renders a
 one-page, machine-readable summary of a result — the strategy, the manifest, the headline
-metrics, the overfitting statistics, and which Rules passed — suitable for a validation
-file. `AuditLedger` is an append-only record of every run, so results are traceable and a
-past backtest can be located and re-run from its manifest."""
+metrics, the overfitting statistics, and which report-card checks passed — suitable for a
+validation file. `AuditLedger` is an append-only record of every run, so results are
+traceable and a past backtest can be located and re-run from its manifest."""
 from __future__ import annotations
 
 import json
@@ -16,7 +16,7 @@ def backtest_card(name: str, manifest: dict, metrics: dict,
                   overfitting: dict | None = None, report=None) -> dict:
     """Assemble a governance card. `metrics` is your headline dict (sharpe, max_drawdown,
     net_sharpe, ...); `overfitting` holds pbo/deflated_sharpe/haircut; `report` is an
-    optional `ReportCard` whose per-Rule checks are folded in."""
+    optional `ReportCard` whose checks are folded in."""
     card = {
         "strategy": name,
         "reproducibility": {k: manifest.get(k) for k in ("seed", "data_hash", "git_sha",
@@ -25,8 +25,7 @@ def backtest_card(name: str, manifest: dict, metrics: dict,
         "overfitting": overfitting or {},
     }
     if report is not None:
-        card["rules"] = [{"question": q, "mark": m, "rule": rid}
-                         for q, m, _, rid in report.checks]
+        card["checks"] = [{"question": q, "mark": m} for q, m, _ in report.checks]
         card["verdict"] = "PASS" if report.passed else "FAIL"
     return card
 

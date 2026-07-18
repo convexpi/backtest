@@ -2,7 +2,7 @@
 
 The number of configurations searched is an input to the deflated Sharpe ratio, and it
 is the one input people fudge. `TrialRegistry` makes it a byproduct of running trials:
-you cannot forget to count what the object counted for you (Rule 14)."""
+you cannot forget to count what the object counted for you."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field

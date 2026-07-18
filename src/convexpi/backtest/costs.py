@@ -3,7 +3,7 @@
 A gross Sharpe is a hypothesis; the net Sharpe is the claim. `CostModel` charges a half-
 spread, a commission, and a **square-root market-impact** term (impact grows with the
 square root of participation), and `capacity` estimates the AUM at which impact eats the
-edge. (Rule 14; a prediction is not a profit.)"""
+edge."""
 from __future__ import annotations
 
 from dataclasses import dataclass

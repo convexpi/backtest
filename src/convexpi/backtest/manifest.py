@@ -2,7 +2,7 @@
 
 Seed, a content hash of the input data, package versions, and the git commit — the
 minimum needed for someone else (or you, in six months) to rerun the backtest and get the
-same number. This is the "environment file" discipline, made one function call (Rules 0 & 2)."""
+same number. This is the "environment file" discipline, made one function call."""
 from __future__ import annotations
 
 import hashlib

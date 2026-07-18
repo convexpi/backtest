@@ -1,5 +1,5 @@
 """Time-aware splitters. Walk-forward is the default; random k-fold is not offered,
-because on ordered, serially dependent data it leaks the future (Rule 3). When labels
+because on ordered, serially dependent data it leaks the future. When labels
 span multiple periods, `purged_walk_forward` drops training rows adjacent to the test
 block (purge) and holds out an embargo gap after it (Lopez de Prado)."""
 from __future__ import annotations

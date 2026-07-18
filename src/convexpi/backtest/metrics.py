@@ -123,6 +123,6 @@ def deflated_sharpe(sr: float, sr_trials_std: float, n_trials: int, n_obs: int,
                     skew: float = 0.0, kurt: float = 3.0) -> float:
     """Deflated Sharpe ratio: PSR against the expected-max-Sharpe benchmark implied by
     the number of trials. `sr` is per-observation. Below ~0.95 the "edge" is not credible
-    once the search is accounted for. (Rule 14.)"""
+    once the search is accounted for."""
     sr0 = expected_max_sharpe(sr_trials_std, n_trials)
     return probabilistic_sharpe(sr, sr0, n_obs, skew, kurt)
