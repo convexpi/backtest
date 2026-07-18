@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "convexpi-backtest"
 version = "0.2.0"
-description = "A discipline-first backtesting framework: honest-evaluation guardrails (sealed holdout, time-aware and combinatorial-purged CV, deflated Sharpe / PBO, cost & capacity, leakage detectors, reproducibility manifest, backtest card) built around the Rules of the Craft."
+description = "A discipline-first backtesting framework: honest-evaluation guardrails (sealed holdout, time-aware and combinatorial-purged CV, deflated Sharpe / PBO, cost & capacity, leakage detectors, reproducibility manifest, backtest card) with every check mapped to a numbered discipline rule."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

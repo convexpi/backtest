@@ -7,7 +7,7 @@
   pipeline is exploiting temporal order — leakage (Rule 3).
 - `target_leakage_scan`: features suspiciously correlated with the target.
 - `training_window_gradient`: does OOS skill grow with more history (learning) or peak at
-  the shortest window (recency)? The Chapter 18 discriminant."""
+  the shortest window (recency)? A discriminant between the two."""
 from __future__ import annotations
 
 import numpy as np
@@ -53,7 +53,7 @@ def target_leakage_scan(X, y, threshold: float = 0.95) -> list[tuple[int, float]
 def training_window_gradient(fit_eval, windows) -> dict:
     """`fit_eval(window)` returns an OOS score for a model trained on the last `window`
     observations. A positive slope of score vs window is the fingerprint of *learning*
-    (more history helps); a negative slope is *recency* (short windows win). Chapter 18."""
+    (more history helps); a negative slope is *recency* (short windows win)."""
     w = np.asarray(list(windows), dtype=float)
     s = np.array([float(fit_eval(int(win))) for win in w], dtype=float)
     slope = float(np.polyfit(w, s, 1)[0]) if np.isfinite(s).all() else float("nan")

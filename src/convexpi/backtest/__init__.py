@@ -1,9 +1,9 @@
 """convexpi.backtest — a discipline-first backtesting framework.
 
-Built around the book's *Rules of the Craft*: the honest-evaluation habits, made
+Built around a set of numbered discipline rules: the honest-evaluation habits, made
 mechanical, plus the statistics and machinery a serious backtest needs. It wraps the
 standard stack (numpy/pandas/scikit-learn) rather than hiding it, and every guardrail
-points back to a numbered Rule.
+points back to a numbered rule (see ``rules.py``).
 
 Core discipline
     SealedHoldout ................ a test set you can look at once

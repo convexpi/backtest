@@ -2,7 +2,7 @@
 
 `card(...)` takes the pieces a disciplined backtest produces — a net and gross return
 series, a baseline to beat, the trial registry, the sealed holdout, and the manifest —
-and answers Chapter 1's six diagnostic questions, marking each ✓ / ✗ / ? and the Rule it
+and answers the six diagnostic questions, marking each ✓ / ✗ / ? and the rule it
 serves. It never *invents* an answer: a piece you did not supply comes back "?" (unknown),
 because an unasked question is the failure mode the card exists to surface."""
 from __future__ import annotations
