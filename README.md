@@ -1,16 +1,12 @@
 # convexpi.backtest — a discipline-first backtesting framework
 
 A backtesting framework organized around the one thing that separates a real edge from a
-lucky one: **honest evaluation**. It wraps the standard stack (numpy / pandas /
-scikit-learn) rather than hiding it, and makes the honest habits mechanical.
+lucky one: **coherent evaluation**. It wraps the standard stack (numpy / pandas /
+scikit-learn), and consistently applies best practices.
 
-Most backtesters make it *easy* to fool yourself — one train/test split, a gross Sharpe,
-no record of how many things you tried. This one makes the honest habits mechanical and
-the dishonest ones loud.
-
-> **Teach the habits by hand first.** Reach for this once students understand *why* each
-> guardrail exists — it automates the discipline, it does not substitute for learning it.
-> Built to be read and modified, in the spirit of `finmlsim`.
+A simple backtester make it *easy* to overfit — one train/test split, a gross Sharpe,
+no record of how many things you tried. convexpi.backtest is constructed to put discipline 
+as a first order feature.
 
 ## Install
 
