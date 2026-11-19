@@ -105,3 +105,16 @@ def test_card_flags_unpaid_search_and_unknowns():
     # the big null search should fail the "paid for the search" check
     marks = {q: mk for q, mk, _ in rc.checks}
     assert marks["Paid for the search (deflated Sharpe)?"] == "✗"
+
+
+def test_embargo_from_prior_blocks_is_excluded_from_later_training():
+    folds = list(bt.purged_walk_forward(100, n_splits=3, embargo=20))
+    assert not set(range(50, 70)) & set(folds[2][0])
+    assert 50 in list(bt.purged_walk_forward(100, n_splits=3, embargo=0))[2][0]
+    assert 10 in folds[2][0]  # old, eligible history is retained
+
+
+@pytest.mark.parametrize("kwargs", [{"embargo": -1}, {"label_horizon": -1}])
+def test_negative_purge_or_embargo_is_rejected(kwargs):
+    with pytest.raises(ValueError):
+        list(bt.purged_walk_forward(100, **kwargs))

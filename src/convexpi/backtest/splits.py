@@ -39,8 +39,12 @@ def purged_walk_forward(n: int, n_splits: int = 5, embargo: int = 0,
     overlaps the test block are purged, and `embargo` further rows after the test block
     are withheld from any later training fold.
     """
+    if embargo < 0 or label_horizon < 0:
+        raise ValueError("embargo and label_horizon must be nonnegative")
+    embargoed = np.zeros(n, dtype=bool)
     for train_idx, test_idx in walk_forward(n, n_splits, min_train):
         t0, t1 = test_idx[0], test_idx[-1]
         purge_lo = t0 - label_horizon
-        keep = train_idx[(train_idx < purge_lo) | (train_idx > t1 + embargo)]
+        keep = train_idx[(train_idx < purge_lo) & ~embargoed[train_idx]]
+        embargoed[t1 + 1:min(n, t1 + 1 + embargo)] = True
         yield keep, test_idx
